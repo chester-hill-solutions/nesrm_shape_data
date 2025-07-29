@@ -83,7 +83,7 @@ export const handler = async (payload) => {
       organizer: cleanString(getValue(body, "ballot1")),
       language: cleanString(getValue(body, "ballot1")),
 
-      paylods: payload,
+      payloads: payload,
 
       olp23_ballot1: cleanString(getValue(body, "olp23_ballot1")),
       olp23_ballot2: cleanString(getValue(body, "olp23_ballot2")),

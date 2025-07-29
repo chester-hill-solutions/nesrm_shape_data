@@ -15,7 +15,7 @@ jobs:
       contents: read
     env:
       S3_BUCKET: nesrm-shape-data
-      S3_KEY: archive.zip
+      S3_KEY: nesrm_shape_data.zip
       LAMBDA_FUNCTION_NAME: nesrm_shape_data
     steps:
       - name: Checkout Repository
