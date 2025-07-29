@@ -21,7 +21,7 @@ const getValue = (payload, key) => {
 };
 
 export const handler = async (payload) => {
-  const body = payload.event.body;
+  const body = payload.payload.event.body;
   try {
     let shaped_data = {
       firstname: cleanString(getValue(body, "firstname")),
