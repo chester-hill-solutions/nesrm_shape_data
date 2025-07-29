@@ -32,16 +32,18 @@ export const handler = async (payload) => {
       // Birth date information
       ...(() => {
         const birthData = {};
-        const dob = cleanString(getValue("dob"));
-        let birthdate = cleanString(getValue("birthday"));
-        let birthmonth = cleanString(getValue("birthmonth"));
-        let birthyear = cleanString(getValue("birthyear"));
+        const dob = cleanString(getValue(body, "dob"));
+        let birthdate = cleanString(getValue(body, "birthdate"));
+        let birthmonth = cleanString(getValue(body, "birthmonth"));
+        let birthyear = cleanString(getValue(body, "birthyear"));
+
         if (
           birthdate &&
           birthmonth &&
           birthyear &&
           !isNaN(Date.parse(`${birthyear}-${birthmonth}-${birthdate}`))
         ) {
+          console.log("valid");
           Object.assign(birthData, { birthyear, birthmonth, birthdate });
           if (dob) {
             birthData.broken_dob = dob;
@@ -83,7 +85,7 @@ export const handler = async (payload) => {
       organizer: cleanString(getValue(body, "ballot1")),
       language: cleanString(getValue(body, "ballot1")),
 
-      payloads: payload,
+      payload: payload,
 
       olp23_ballot1: cleanString(getValue(body, "olp23_ballot1")),
       olp23_ballot2: cleanString(getValue(body, "olp23_ballot2")),
