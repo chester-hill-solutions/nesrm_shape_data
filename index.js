@@ -3,7 +3,7 @@ const cleanString = (str) => {
   const cleaned = String(str).trim();
   return cleaned === "" ? undefined : cleaned;
 };
-//get value
+//get
 const getValue = (payload, key) => {
   // Check form fields format
   if (payload[`fields[${key}][value]`] !== undefined) {
