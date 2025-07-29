@@ -20,7 +20,6 @@ const getValue = (payload, key) => {
   return undefined;
 };
 
-//handler
 export const handler = async (payload) => {
   const body = payload.payload.event.body;
   try {
