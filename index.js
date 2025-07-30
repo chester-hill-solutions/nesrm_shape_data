@@ -43,7 +43,6 @@ export const handler = async (payload) => {
           birthyear &&
           !isNaN(Date.parse(`${birthyear}-${birthmonth}-${birthdate}`))
         ) {
-          console.log("valid");
           Object.assign(birthData, { birthyear, birthmonth, birthdate });
           if (dob) {
             birthData.broken_dob = dob;
@@ -69,8 +68,8 @@ export const handler = async (payload) => {
       federal_electoral_district: cleanString(
         getValue(body, "federal_electoral_district")
       ),
-      district_electoral_district: cleanString(
-        getValue(body, "district_electoral_district")
+      division_electoral_district: cleanString(
+        getValue(body, "division_electoral_district")
       ),
 
       ballot1: cleanString(getValue(body, "ballot1")),
@@ -84,6 +83,7 @@ export const handler = async (payload) => {
 
       organizer: cleanString(getValue(body, "organizer")),
       language: cleanString(getValue(body, "language")),
+      van_id: cleanString(getValue(body, "van_id")),
 
       olp23_ballot1: cleanString(getValue(body, "olp23_ballot1")),
       olp23_ballot2: cleanString(getValue(body, "olp23_ballot2")),
