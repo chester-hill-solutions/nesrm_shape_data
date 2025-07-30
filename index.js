@@ -63,7 +63,7 @@ export const handler = async (payload) => {
       municipality: cleanString(getValue(body, "municipality")),
       district: cleanString(getValue(body, "district")),
       region: cleanString(getValue(body, "region")),
-      country: cleanString(getValue(body, "county")),
+      county: cleanString(getValue(body, "county")),
       country: cleanString(getValue(body, "country")),
       postcode: cleanString(getValue(body, "postcode")),
       federal_electoral_district: cleanString(
@@ -77,15 +77,13 @@ export const handler = async (payload) => {
       ballot2: cleanString(getValue(body, "ballot2")),
       ballot3: cleanString(getValue(body, "ballot3")),
 
-      comms_consent: cleanString(getValue(body, "ballot1")),
-      signup_consent: cleanString(getValue(body, "ballot1")),
-      signed_up: cleanString(getValue(body, "ballot1")),
-      member: cleanString(getValue(body, "ballot1")),
+      comms_consent: cleanString(getValue(body, "comms_consent")),
+      signup_consent: cleanString(getValue(body, "signup_consent")),
+      signed_up: cleanString(getValue(body, "signed_up")),
+      member: cleanString(getValue(body, "member")),
 
-      organizer: cleanString(getValue(body, "ballot1")),
-      language: cleanString(getValue(body, "ballot1")),
-
-      payload: payload,
+      organizer: cleanString(getValue(body, "organizer")),
+      language: cleanString(getValue(body, "language")),
 
       olp23_ballot1: cleanString(getValue(body, "olp23_ballot1")),
       olp23_ballot2: cleanString(getValue(body, "olp23_ballot2")),
@@ -130,9 +128,13 @@ export const handler = async (payload) => {
       ),
     };
 
+    const cleaned_data = Object.fromEntries(
+      Object.entries(shaped_data).filter(([_, value]) => value !== undefined)
+    );
+
     return {
       response: 200,
-      payload: shaped_data,
+      payload: cleaned_data,
     };
   } catch (error) {
     throw error;
