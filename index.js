@@ -79,7 +79,7 @@ export const handler = async (payload) => {
 
       comms_consent: cleanString(getValue(body, "comms_consent")),
       signup_consent: cleanString(getValue(body, "signup_consent")),
-      signed_up: cleanString(getValue(body, "signed_up")),
+      signup_submitted: cleanString(getValue(body, "signup_submitted")),
       member: cleanString(getValue(body, "member")),
 
       organizer: cleanString(getValue(body, "organizer")),
@@ -99,7 +99,9 @@ export const handler = async (payload) => {
       olp23_donation_amount: cleanString(
         getValue(body, "olp23_donation_amount")
       ),
-      olp23_signed_up: cleanString(getValue(body, "olp23_signed_up")),
+      olp23_signup_submitted: cleanString(
+        getValue(body, "olp23_signup_submitted")
+      ),
       olp23_organizer: cleanString(getValue(body, "olp23_organizer")),
       olp23_source: cleanString(getValue(body, "olp23_source")),
       olp23_member: cleanString(getValue(body, "olp23_member")),
